@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetLover - Bridging Lives</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .about-section h2 {
+      color: #ce4e13;
+      font-weight: bold;
+      font-size: 38px;
+    }
+    .about-section p {
+      font-size: 20px;
+      color: #f75009;
+      text-transform: uppercase;
+      border-bottom: 2px  solid #4CAF50 ;
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+      font-family: 'Arial', sans-serif;
+    }
+    .product-section h2 {
+      color: #ce4e13;
+      font-weight: bold;
+      border-bottom: 2px solid #4CAF50;
+      
+      font-size: 38px;
+      text-align: center;
+      
+    }
+    .product-section  {
+      border-bottom: 2px solid #4CAF50;
+    }
+    .services-section h2{
+      color: #ce4e13;
+      font-weight: bold;
+      font-size: 38px;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="logo"><img src="https://i.ibb.co/DpSD1y1/th.jpg" style="width: 60px; height: 9;" alt="Logo"></div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#products" class="active">Products</a></li>
+        <li><a href="#video">Video</a></li>
+        <li><a href="#brands">Our Brands</a></li>
+        <li><a href="#partners">Partners</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="cart-icon">
+      <a href="javascript:void(0);" id="cart-button">
+        <img src="https://i.ibb.co/HrXh0cf/vector-add-to-cart-icon-design.jpg" style="width: 40px; height: 9;" alt="Cart">
+      </a>
+      <span id="cart-count">0</span>
+    </div>
+  </header>
+
+  <section class="hero">
+    <a href="https://ibb.co/7rPzjj4"><img src="https://i.ibb.co/CVgtmm2/Screenshot-2024-12-20-142633.png" alt="Hero Image"></a> 
+    <div class="hero-content">
+      <h1>Bridging Lives</h1>
+      <p>Providing the best care and products for your beloved pets.</p>
+    </div>
+  </section>
+
+  <section id="about" class="about-section">
+    <h2>About PetLover</h2>
+    <p>At PetLover, we are passionate about offering premium pet products and care solutions to ensure your pets live a healthy and happy life.</p>
+  </section>
+
+  <!-- Product Section -->
+  <section id="products" class="product-section">
+    <h2>Our Products</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="https://via.placeholder.com/250x200" alt="Premium Pet Food">
+        <h3>Premium Pet Food</h3>
+        <p>Price: $29.99</p>
+        <button class="add-to-cart" data-product="Premium Pet Food" data-price="29.99">$29.99 - Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/250x200" alt="Comfortable Pet Bed">
+        <h3>Comfortable Pet Bed</h3>
+        <p>Price: $49.99</p>
+        <button class="add-to-cart" data-product="Comfortable Pet Bed" data-price="49.99">$49.99 - Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/250x200" alt="Pet Toy">
+        <h3>Pet Toy</h3>
+        <p>Price: $9.99</p>
+        <button class="add-to-cart" data-product="Pet Toy" data-price="9.99">$9.99 - Add to Cart</button>
+      </div>
+    </div>
+  </section>
+  <!-- YouTube Video Section -->
+  <section id="video" class="video-section">
+    <h2>Watch Our Introduction Video</h2>
+    <p>Get to know more about our products and services through our official video!</p>
+    <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/M83Y1GKTgZ8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </section>
+  
+
+  <!-- Services Section -->
+  <section id="services" class="services-section">
+    <div class="container">
+      <h2 class="section-title">Our Services</h2>
+      <div class="services-grid">
+        <div class="service-item">
+          <img src="https://i.ibb.co/2SsNsqr/th-1.jpg" style="width: 250px; height: 210px;" alt="Service 1">
+          <h3>Pet Grooming</h3>
+        </div>
+        <div class="service-item">
+          <img src="https://i.ibb.co/XJ3x6jM/th-2.jpg" style="width: 250px; height: 210px;" alt="Service 2">
+          <h3>Pet Health Care</h3>
+        </div>
+        <div class="service-item">
+          <img src="https://i.ibb.co/CVRxWDN/th-3.jpg" style="width: 250px; height: 210px;" alt="Service 3">
+          <h3>Pet Toy</h3>
+        </div>
+        <div class="service-item">
+          <img src="https://i.ibb.co/BnPsXY2/th-4.jpg" style="width: 250px; height: 210px;" alt="Service 4">
+          <h3>Pet Food</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cart Modal -->
+  <div id="cart-modal" class="cart-modal">
+    <div class="cart-modal-content">
+      <span class="close-btn" id="close-cart">&times;</span>
+      <h2>Your Cart</h2>
+      <div id="cart-items"></div>
+      <div class="cart-summary">
+        <p>Total: $<span id="cart-total">0.00</span></p>
+        <button class="checkout-button">Proceed to Checkout</button>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script src="cart.js"></script>
+  <!-- New Sections Added -->
+<section class="countries-section">
+  <h2>Countries We Are Available In</h2>
+  <ul>
+      <li>USA</li>
+      <li>Canada</li>
+      <li>Germany</li>
+      <li>UK</li>
+      <li>Australia</li>
+      <li>India</li>
+      <!-- Add more countries as needed -->
+  </ul>
+</section>
+<div id="brands" class="image-container">
+  <img src="https://i.ibb.co/NtTXyPx/Screenshot-2024-12-20-211758.png" alt="Centered Image" class="centered-image">
+</div>
+
+
+<section id="partners" class="partner-section">
+  <h2>Reach Out to Us If You Want to Partner</h2>
+  <p>We are always open to new partnerships and opportunities. Get in touch with us!</p>
+  <button class="contact-button">Partner with Us</button>
+</section>
+
+<section id="contact" class="contact-section">
+  <h2>Contact Us</h2>
+  <p>Have a question or need assistance? Reach out to us!</p>
+  <div class="contact-options">
+      <div class="contact-option">
+          <img src="https://i.ibb.co/H4HmnHx/Whats-App-logo-color-vertical-svg.png" alt="WhatsApp">
+          <a href="https://wa.me/9875464949" target="_blank">Chat with us on WhatsApp</a>
+      </div>
+      <div class="contact-option">
+          <img src="https://i.ibb.co/dWCPzm3/th-5.jpg" style="width: 50px; height:50px;" alt="th-5" border="0" alt="Email">
+          <a href="mailto:soumyajitmukhopadhyay7@gmail.com">Email Us</a>
+      </div>
+  </div>
+</section>
+<section id="location" class="location-section">
+  <h2>Our Location</h2>
+  <p>Find us at the address below or view our location on the map.</p>
+
+  <div class="map-container">
+    <!-- Embed Google Map with your location (replace with your actual embed code) -->
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d316.30546553689743!2d88.42236631975165!3d22.652686980873483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1734713208565!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+      width="100%" 
+      height="450" 
+      frameborder="0" 
+      style="border:0;" 
+      allowfullscreen>
+    </iframe>
+  </div>
+</section>
+
+
+<footer>
+  <div class="footer-content">
+      <h3>Stay Connected with Us</h3>
+      <p>Subscribe to our newsletter or follow us on social media for the latest updates, promotions, and more!</p>
+      <div class="social-links">
+          <a href="https://www.instagram.com/soumyajit_kgpian" target="_blank">Instagram</a>
+          <a href="https://www.linkedin.com/in/Soumyajit Mukhopadhyay" target="_blank">LinkedIn</a>
+      </div>
+      <div class="footer-bottom">
+          <p>&copy; 2024 Your Company. All Rights Reserved.</p>
+          <p>Privacy Policy | <a href="#">Terms of Service</a></p>
+      </div>
+  </div>
+</footer>
+
+</body>
+</html> 

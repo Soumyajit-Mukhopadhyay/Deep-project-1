@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment - PetLover</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .header {
+      background-color: #282828;
+      color: white;
+      padding: 15px 20px;
+      text-align: center;
+    }
+
+    .logo img {
+      width: 60px;
+      height: 60px;
+    }
+
+    .nav-links {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .nav-links li {
+      display: inline;
+      margin: 0 10px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .payment-section {
+      margin: 30px auto;
+      max-width: 800px;
+      padding: 20px;
+      background-color: white;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .cart-item {
+      margin-bottom: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      background-color: #fafafa;
+      border-radius: 5px;
+    }
+
+    .cart-item span {
+      font-size: 16px;
+      color: #333;
+    }
+
+    .quantity-buttons {
+      display: flex;
+      align-items: center;
+    }
+
+    .quantity-buttons button {
+      padding: 5px 10px;
+      cursor: pointer;
+      background-color: #f1f1f1;
+      border: 1px solid #ccc;
+      margin: 0 5px;
+      border-radius: 5px;
+    }
+
+    .quantity-buttons button:hover {
+      background-color: #ddd;
+    }
+
+    .pay-now-button {
+      background-color: green;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      margin-top: 20px;
+      border-radius: 5px;
+      width: 100%;
+    }
+
+    .pay-now-button:hover {
+      background-color: darkgreen;
+    }
+
+    .thank-you-message {
+      text-align: center;
+      margin-top: 50px;
+      display: none;
+    }
+
+    .thank-you-message h2 {
+      color: green;
+    }
+
+    .thank-you-message p {
+      font-size: 18px;
+    }
+
+    .payment-options {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+
+    .payment-options button {
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+      border: none;
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .payment-options button:hover {
+      background-color: #45a049;
+    }
+
+    .qr-code {
+      display: none;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .qr-code img {
+      width: 150px;
+      height: 150px;
+    }
+
+    .gift-message {
+      text-align: center;
+      margin-top: 20px;
+    }
+    
+    
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+      color: #333;
+    }
+
+    .header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .payment-section {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .payment-section h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #4CAF50;
+    }
+
+    .payment-section p {
+      font-size: 16px;
+      color: #555;
+    }
+
+    .payment-section button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .payment-section button:hover {
+      background-color: #45a049;
+    }
+
+    .thank-you-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .thank-you-modal-content {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+      max-width: 400px;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .thank-you-modal-content h1 {
+      font-size: 28px;
+      color: #4CAF50;
+      margin-bottom: 10px;
+    }
+
+    .thank-you-modal-content .love-sign {
+      font-size: 48px;
+      color: red;
+      margin-top: 10px;
+    }
+
+    .thank-you-modal-content button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .thank-you-modal-content button:hover {
+      background-color: #45a049;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="logo"><img src="https://i.ibb.co/DpSD1y1/th.jpg" alt="PetLover Logo"></div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#video">Video</a></li>
+        <li><a href="#brands">Our Brands</a></li>
+        <li><a href="#partners">Partners</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="payment-section">
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+    <div class="cart-summary">
+      <p>Total: $<span id="payment-total">0.00</span></p>
+    </div>
+
+    <!-- Payment Options -->
+    <div class="payment-options">
+      <button onclick="showQR('phonepe')">PhonePe</button>
+      <button onclick="showQR('gpay')">Google Pay</button>
+    </div>
+
+    <!-- QR Code and UPI Info -->
+    <div id="qr-phonepe" class="qr-code">
+      <h3>PhonePe Payment</h3>
+      <img src="https://i.ibb.co/RBkY1Yq/Whats-App-Image-2024-12-20-at-22-24-34-f2043ffd.jpg" style="width: 350px;height: 550px;" alt="PhonePe QR Code">
+      <p>UPI ID: 9875464949@ibl</p>
+    </div>
+
+    <div id="qr-gpay" class="qr-code">
+      <h3>Google Pay Payment</h3>
+      <img src="https://i.ibb.co/sVB1cRG/Whats-App-Image-2024-12-20-at-22-25-54-814a1cdc.jpg" style="width: 350px;height: 550px;"alt="Google Pay QR Code">
+      <p>UPI ID: 9875464949@axl</p>
+    </div>
+
+    <button class="pay-now-button" onclick="processPayment()">Pay Now</button>
+    
+    <!-- Thank You Message -->
+    <div id="thank-you-message" class="thank-you-message">
+      <h2>Thank you for your purchase!</h2>
+      <p>Your payment was successful. We appreciate your business.</p>
+    </div>
+
+    <div class="gift-message">
+      <p>Please give a little gift to Deep to motivate his little enthusiasm.</p>
+    </div>
+  </section>
+
+  <script src="cart.js"></script>
+  <script>
+    // Assuming cartData is stored in localStorage or from cart.js.
+    let cartData = JSON.parse(localStorage.getItem('cartData')) || [];
+
+    // Display the cart items
+    function displayCartItems() {
+      if (cartData.length > 0) {
+        let total = 0;
+        const cartItemsDiv = document.getElementById('cart-items');
+        cartItemsDiv.innerHTML = ""; // Clear previous cart content
+
+        cartData.forEach((item, index) => {
+          const itemDiv = document.createElement('div');
+          itemDiv.classList.add('cart-item');
+          itemDiv.innerHTML = `
+            <span>${item.product} - $${item.price.toFixed(2)} x <span id="quantity-${index}">${item.quantity}</span></span>
+            <div class="quantity-buttons">
+              <button class="btn-decrease" data-index="${index}">-</button>
+              <button class="btn-increase" data-index="${index}">+</button>
+            </div>
+          `;
+          cartItemsDiv.appendChild(itemDiv);
+          total += item.price * item.quantity;
+        });
+
+        // Display the total
+        document.getElementById('payment-total').textContent = total.toFixed(2);
+
+        // Attach event listeners to the quantity buttons after rendering
+        const decreaseButtons = document.querySelectorAll('.btn-decrease');
+        const increaseButtons = document.querySelectorAll('.btn-increase');
+
+        decreaseButtons.forEach(button => {
+          button.addEventListener('click', function() {
+            const index = this.getAttribute('data-index');
+            updateQuantity(index, -1);
+          });
+        });
+
+        increaseButtons.forEach(button => {
+          button.addEventListener('click', function() {
+            const index = this.getAttribute('data-index');
+            updateQuantity(index, 1);
+          });
+        });
+
+      } else {
+        alert("No cart data found.");
+      }
+    }
+
+    // Function to update the quantity of an item
+    function updateQuantity(index, change) {
+      if (cartData[index].quantity + change >= 1) {
+        cartData[index].quantity += change; // Update the quantity
+        document.getElementById(`quantity-${index}`).textContent = cartData[index].quantity; // Update the displayed quantity
+        updateTotal(); // Update the total price
+      }
+    }
+
+    // Function to update the total price based on cart data
+    function updateTotal() {
+      let total = 0;
+      cartData.forEach(item => {
+        total += item.price * item.quantity;
+      });
+      document.getElementById('payment-total').textContent = total.toFixed(2);
+      localStorage.setItem('cartData', JSON.stringify(cartData)); // Save updated cart data to localStorage
+    }
+
+    // Function to show the QR code and payment information
+    function showQR(paymentMethod) {
+      // Hide all QR codes
+      document.getElementById('qr-phonepe').style.display = 'none';
+      document.getElementById('qr-gpay').style.display = 'none';
+
+      // Show the selected QR code
+      if (paymentMethod === 'phonepe') {
+        document.getElementById('qr-phonepe').style.display = 'block';
+      } else if (paymentMethod === 'gpay') {
+        document.getElementById('qr-gpay').style.display = 'block';
+      }
+    }
+
+    // Function to process payment
+    function processPayment() {
+      // Simulate a successful payment
+      document.querySelector('.payment-section').style.display = 'none'; // Hide payment section
+      document.getElementById('thank-you-message').style.display = 'block'; // Show thank you message
+      localStorage.removeItem('cartData'); // Clear cart data from localStorage
+    }
+
+    // Initially display the cart items
+    displayCartItems();
+  </script>
+  <header class="header">
+    <h1>Secure Payment</h1>
+  </header>
+
+  <main>
+    <section class="payment-section">
+      <h2>Complete Your Payment</h2>
+      <p>Click the button below to proceed with your payment.</p>
+      <button id="pay-now-button">Pay Now</button>
+    </section>
+  </main>
+
+  <!-- Thank You Modal -->
+  <div class="thank-you-modal" id="thank-you-modal">
+    <div class="thank-you-modal-content">
+      <h1>Thank you so much!</h1>
+      <div class="love-sign">&#10084;</div>
+      <button id="close-modal">Close</button>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('pay-now-button').addEventListener('click', function() {
+      // Show the thank-you modal
+      document.getElementById('thank-you-modal').style.display = 'flex';
+    });
+
+    document.getElementById('close-modal').addEventListener('click', function() {
+      // Hide the thank-you modal
+      document.getElementById('thank-you-modal').style.display = 'none';
+    });
+
+    // Close the modal when clicking outside of it
+    window.addEventListener('click', function(event) {
+      const modal = document.getElementById('thank-you-modal');
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+  </script>
+</body>
